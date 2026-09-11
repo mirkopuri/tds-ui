@@ -1,0 +1,18 @@
+/*
+ * TDS International brand tokens - single source of truth for colors/fonts
+ * shared across all TDS webapps (hub, order, accounting, CIF). Framework
+ * agnostic: works whether the consuming app uses Tailwind or plain CSS.
+ */
+:root {
+  --tds-navy: #2e4e8c;
+  --tds-navy-light: #3f61a3;
+  --tds-gold: #bf8f00;
+  --tds-cream: #fff2cc;
+  --tds-blue-pale: #eaf0f7;
+  --tds-slate: #44546a;
+
+  --tds-font-sans: system-ui, -apple-system, "Segoe UI", Arial, Helvetica, sans-serif;
+
+  --tds-radius: 8px;
+  --tds-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}

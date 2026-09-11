@@ -1,0 +1,38 @@
+/*
+ * For Tailwind v4 apps (e.g. cif-webapp): `@import "tds-ui/tailwind.css";`
+ * instead of hand-rolling the same @theme block in each app.
+ */
+@import "./tokens.css";
+
+@theme inline {
+  --color-tds-navy: var(--tds-navy);
+  --color-tds-navy-light: var(--tds-navy-light);
+  --color-tds-gold: var(--tds-gold);
+  --color-tds-cream: var(--tds-cream);
+  --color-tds-blue-pale: var(--tds-blue-pale);
+  --color-tds-slate: var(--tds-slate);
+}
+
+@layer components {
+  .input {
+    @apply w-full rounded-md border border-neutral-300 px-3 py-1.5 text-sm outline-none focus:border-tds-navy focus:ring-1 focus:ring-tds-navy;
+  }
+  .input-highlight {
+    @apply w-full rounded-md border border-tds-gold/40 bg-tds-cream px-3 py-1.5 text-sm outline-none focus:border-tds-navy focus:ring-1 focus:ring-tds-navy;
+  }
+  .btn {
+    @apply rounded-md bg-tds-navy text-white px-3 py-1.5 text-sm font-medium hover:bg-tds-navy-light disabled:opacity-50;
+  }
+  .btn-secondary {
+    @apply rounded-md border border-neutral-300 px-3 py-1.5 text-sm hover:bg-neutral-100;
+  }
+  .btn-danger {
+    @apply rounded-md text-red-600 px-2 py-1 text-xs hover:bg-red-50;
+  }
+  .th-header {
+    @apply bg-tds-navy text-white text-xs uppercase tracking-wide font-semibold;
+  }
+  .banner-gold {
+    @apply bg-tds-gold text-white text-xs uppercase tracking-wide font-semibold;
+  }
+}

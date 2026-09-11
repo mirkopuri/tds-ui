@@ -1,0 +1,93 @@
+/*
+ * Plain-CSS component classes for TDS apps that don't use Tailwind
+ * (hub-webapp, order-webapp). Import after tokens.css:
+ *   @import "tds-ui/tokens.css";
+ *   @import "tds-ui/components.css";
+ */
+
+.tds-btn {
+  border-radius: var(--tds-radius);
+  background: var(--tds-navy);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.tds-btn:hover {
+  background: var(--tds-navy-light);
+}
+.tds-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.tds-btn-secondary {
+  border-radius: var(--tds-radius);
+  background: none;
+  border: 1px solid #ccc;
+  color: #555;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.tds-btn-secondary:hover {
+  background: #f4f5f7;
+}
+
+.tds-card {
+  display: block;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: var(--tds-shadow);
+  border-top: 4px solid var(--tds-navy);
+}
+
+.tds-card-disabled {
+  display: block;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: var(--tds-shadow);
+  border-top: 4px solid #ccc;
+  opacity: 0.6;
+}
+
+.tds-badge-navy {
+  display: inline-block;
+  background: var(--tds-navy);
+  color: #fff;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.tds-badge-gold {
+  display: inline-block;
+  background: var(--tds-gold);
+  color: #fff;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.tds-input {
+  width: 100%;
+  border-radius: var(--tds-radius);
+  border: 1px solid #ccc;
+  padding: 0.5rem 0.6rem;
+  font-size: 0.9rem;
+  outline: none;
+}
+.tds-input:focus {
+  border-color: var(--tds-navy);
+  box-shadow: 0 0 0 1px var(--tds-navy);
+}
