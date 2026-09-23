@@ -7,7 +7,7 @@
 
 .tds-btn {
   border-radius: var(--tds-radius);
-  background: var(--tds-navy);
+  background: var(--tds-accent);
   color: #fff;
   border: none;
   padding: 0.6rem 1rem;
@@ -16,7 +16,7 @@
   cursor: pointer;
 }
 .tds-btn:hover {
-  background: var(--tds-navy-light);
+  background: var(--tds-accent-hover);
 }
 .tds-btn:disabled {
   opacity: 0.5;
@@ -125,6 +125,6 @@
   outline: none;
 }
 .tds-input:focus {
-  border-color: var(--tds-navy);
-  box-shadow: 0 0 0 1px var(--tds-navy);
+  border-color: var(--tds-accent);
+  box-shadow: 0 0 0 1px var(--tds-accent);
 }

@@ -11,6 +11,11 @@
   --tds-blue-pale: #eaf0f7;
   --tds-slate: #44546a;
 
+  /* Primary action color (buttons, links, focus states) - order-webapp's
+     original blue, now the shared standard so every app's buttons match. */
+  --tds-accent: #1d4ed8;
+  --tds-accent-hover: #1e40af;
+
   --tds-font-sans: system-ui, -apple-system, "Segoe UI", Arial, Helvetica, sans-serif;
 
   --tds-radius: 8px;

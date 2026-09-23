@@ -11,17 +11,19 @@
   --color-tds-cream: var(--tds-cream);
   --color-tds-blue-pale: var(--tds-blue-pale);
   --color-tds-slate: var(--tds-slate);
+  --color-tds-accent: var(--tds-accent);
+  --color-tds-accent-hover: var(--tds-accent-hover);
 }
 
 @layer components {
   .input {
-    @apply w-full rounded-md border border-neutral-300 px-3 py-1.5 text-sm outline-none focus:border-tds-navy focus:ring-1 focus:ring-tds-navy;
+    @apply w-full rounded-md border border-neutral-300 px-3 py-1.5 text-sm outline-none focus:border-tds-accent focus:ring-1 focus:ring-tds-accent;
   }
   .input-highlight {
-    @apply w-full rounded-md border border-tds-gold/40 bg-tds-cream px-3 py-1.5 text-sm outline-none focus:border-tds-navy focus:ring-1 focus:ring-tds-navy;
+    @apply w-full rounded-md border border-tds-gold/40 bg-tds-cream px-3 py-1.5 text-sm outline-none focus:border-tds-accent focus:ring-1 focus:ring-tds-accent;
   }
   .btn {
-    @apply rounded-md bg-tds-navy text-white px-3 py-1.5 text-sm font-medium hover:bg-tds-navy-light disabled:opacity-50;
+    @apply rounded-md bg-tds-accent text-white px-3 py-1.5 text-sm font-medium hover:bg-tds-accent-hover disabled:opacity-50;
   }
   .btn-secondary {
     @apply rounded-md border border-neutral-300 px-3 py-1.5 text-sm hover:bg-neutral-100;
