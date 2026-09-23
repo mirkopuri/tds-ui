@@ -79,6 +79,43 @@
   border-radius: 4px;
 }
 
+/*
+ * The universal app topbar: identical in every TDS app EXCEPT the hub
+ * itself (which has no "back to hub" link, obviously). Nothing app-specific
+ * (logo, nav items, page title) belongs in it - that's "the application"
+ * and renders below it. Expected markup:
+ *   <header class="tds-topbar">
+ *     <a href="https://hub.tdsinternational.it" class="tds-topbar-link">&larr; Hub</a>
+ *     <button class="tds-topbar-link" type="submit">Logout</button>
+ *   </header>
+ * If the app has its own branded header (logo/nav, e.g. cif-webapp), put
+ * this bar ABOVE it, not merged into it - the thin strip is the constant.
+ */
+.tds-topbar {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 0 16px;
+  background: var(--tds-navy);
+}
+.tds-topbar-link {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.tds-topbar-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
 .tds-input {
   width: 100%;
   border-radius: var(--tds-radius);
