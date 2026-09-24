@@ -116,6 +116,80 @@
   color: #fff;
 }
 
+/*
+ * The app section menu ("sotto menu"): the white tab strip directly under
+ * .tds-topbar, used by every TDS app for its own views (Order App:
+ * Dashboard/Orders, Price: Offers/Cost calc, Database: Products/Suppliers).
+ * Active tab = bold accent text + accent underline. On phones the tabs scroll
+ * sideways inside the strip instead of overflowing the page. Expected markup:
+ *   <nav class="tds-subnav" aria-label="Sections">
+ *     <div class="tds-subnav-tabs">
+ *       <a class="tds-subnav-tab active" aria-current="page" href="/x">X</a>
+ *       <a class="tds-subnav-tab" href="/y">Y</a>
+ *     </div>
+ *     <span class="tds-subnav-end">optional right-aligned status/actions</span>
+ *   </nav>
+ * (tabs may be <a> or <button>; the app sets .active + aria-current itself.)
+ */
+.tds-subnav {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 16px;
+  background: #fff;
+  border-bottom: 1px solid var(--tds-border);
+}
+.tds-subnav-tabs {
+  display: flex;
+  gap: 4px;
+  height: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tds-subnav-tabs::-webkit-scrollbar {
+  display: none;
+}
+.tds-subnav-tab {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  height: 100%;
+  padding: 0 14px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--tds-muted);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.tds-subnav-tab:hover {
+  color: var(--tds-text);
+}
+.tds-subnav-tab.active {
+  color: var(--tds-accent);
+  font-weight: bold;
+  border-bottom-color: var(--tds-accent);
+}
+.tds-subnav-end {
+  flex: 0 0 auto;
+  font-size: 12px;
+  color: var(--tds-muted);
+}
+@media (max-width: 520px) {
+  .tds-subnav {
+    padding: 0 8px;
+  }
+  .tds-subnav-tab {
+    padding: 0 10px;
+  }
+}
+
 .tds-input {
   width: 100%;
   border-radius: var(--tds-radius);

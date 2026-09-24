@@ -16,6 +16,11 @@
   --tds-accent: #1d4ed8;
   --tds-accent-hover: #1e40af;
 
+  /* Neutral chrome shared by bars, tabs and panels */
+  --tds-border: #dde1e6;
+  --tds-text: #1f2430;
+  --tds-muted: #6b7280;
+
   --tds-font-sans: system-ui, -apple-system, "Segoe UI", Arial, Helvetica, sans-serif;
 
   --tds-radius: 8px;
