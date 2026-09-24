@@ -241,6 +241,98 @@ select.input:required:invalid {
   background-color: #fef2f2;
 }
 
+/* Searchable list opened by select.js for long dropdowns (mouse devices) */
+.tds-select-pop {
+  position: fixed;
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid rgba(16, 24, 40, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(16, 24, 40, 0.18), 0 2px 6px rgba(16, 24, 40, 0.08);
+  padding: 8px;
+  font-family: inherit;
+  color: var(--tds-text);
+}
+.tds-select-search {
+  box-sizing: border-box;
+  width: 100%;
+  flex: 0 0 auto;
+  margin: 0 0 6px;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: #f1f3f6;
+  font: inherit;
+  font-size: 14px;
+  color: inherit;
+  outline: none;
+}
+.tds-select-search:focus {
+  background: #fff;
+  border-color: var(--tds-accent);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.15);
+}
+.tds-select-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.tds-select-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.3;
+  cursor: pointer;
+}
+.tds-select-item[hidden],
+.tds-select-group[hidden] {
+  display: none;
+}
+.tds-select-item.is-active {
+  background: rgba(29, 78, 216, 0.09);
+}
+.tds-select-item.is-selected {
+  font-weight: 600;
+}
+.tds-select-item.is-selected::after {
+  content: "\2713";
+  flex: 0 0 auto;
+  color: var(--tds-accent);
+  font-weight: 700;
+}
+.tds-select-item.is-placeholder {
+  color: var(--tds-muted);
+}
+.tds-select-item.is-disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.tds-select-group {
+  padding: 8px 10px 4px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--tds-muted);
+}
+.tds-select-empty {
+  padding: 14px 10px;
+  font-size: 13px;
+  color: var(--tds-muted);
+  text-align: center;
+}
+
 .tds-input {
   width: 100%;
   border-radius: var(--tds-radius);

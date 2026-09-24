@@ -7,6 +7,8 @@
     "tokens.css",
     "tailwind.css",
     "components.css",
+    "select.js",
+    "select.d.ts",
     "assets"
   ],
   "main": "tokens.css"
