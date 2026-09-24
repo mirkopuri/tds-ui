@@ -224,7 +224,7 @@
    specificity: any app rule wins). .input / .tds-input selects keep their own
    input-matching height so they line up with neighbouring fields. */
 :where(select:not([multiple]):not([size]):not(.input):not(.tds-input)) {
-  min-height: 38px;
+  min-height: 36px;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 12px;
