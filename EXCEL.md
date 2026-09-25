@@ -63,3 +63,14 @@ git dependency with the same `version` as up to date. **So every change to tds-u
 `tds-ui/package.json`** (0.2.0 -> 0.2.1 ...), then in each consuming app run `npm install github:mirkopuri/tds-ui`
 and commit `package-lock.json`. Without the bump a Vercel build can silently keep the old copy
 ("Module not found: tds-ui/excel.js").
+
+## Numbers: the shared decimals rule (applies to UI, prints AND Excel)
+
+Numbers the user **enters** (unit prices, weights, rates, amounts) show **at least 2 decimals**; if more were typed
+(up to 4) they are shown **exactly, never rounded** (0,125 stays `0,125`; 0,15 shows `0,15`; 1234,5 shows `1.234,50`).
+Values **computed** from other numbers (line / order totals) keep 2 decimals.
+
+* On screen and in prints use `formatEntered` / `formatCurrencyEntered` from `tds-ui/format.js`
+  (static apps load it as `<script src="tds-ui-format.js">` -> `window.tdsFormat`).
+* In Excel the kit's `money` / `decimal` kinds already use `#,##0.00##` (2 decimals, up to 4 when present). Do not
+  override with a fixed `#,##0.0000` or `#,##0.00`.

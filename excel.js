@@ -41,8 +41,10 @@ export function tint(hex, t) {
 
 const solid = (hex) => ({ type: "pattern", pattern: "solid", fgColor: { argb: argb(hex) } });
 
-// Default number formats by column kind.
-const KIND_FMT = { int: "#,##0", decimal: "#,##0.00", money: "#,##0.00", percent: "0.0", date: "yyyy-mm-dd" };
+// Default number formats by column kind. decimal/money follow the shared number rule
+// (see format.js): at least 2 decimals, and any extra decimals typed (up to 4) are
+// displayed exactly - "#,##0.00##" - never rounded.
+const KIND_FMT = { int: "#,##0", decimal: "#,##0.00##", money: "#,##0.00##", percent: "0.0", date: "yyyy-mm-dd" };
 
 function toDate(v) {
   if (v instanceof Date) return v;
