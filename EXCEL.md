@@ -55,3 +55,11 @@ export async function GET() {
 3. Required columns marked (`required: true`) in templates; hover `note` on non-obvious columns.
 4. File name: `<what>-YYYY-MM-DD.xlsx`.
 5. Verified by reading the file back (ExcelJS) and, for templates, through the importer.
+
+## Propagating changes to the apps (important)
+
+Each app pins tds-ui to a git commit in its lockfile, but Vercel restores a cached `node_modules` and npm treats a
+git dependency with the same `version` as up to date. **So every change to tds-ui must bump `version` in
+`tds-ui/package.json`** (0.2.0 -> 0.2.1 ...), then in each consuming app run `npm install github:mirkopuri/tds-ui`
+and commit `package-lock.json`. Without the bump a Vercel build can silently keep the old copy
+("Module not found: tds-ui/excel.js").

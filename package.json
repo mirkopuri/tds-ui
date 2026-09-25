@@ -1,6 +1,6 @@
 {
   "name": "tds-ui",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
   "description": "Shared TDS International brand tokens, CSS, and assets for the Vercel webapps (hub, order, accounting, CIF). Also the shared Excel style kit (excel.js).",
   "files": [
