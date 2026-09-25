@@ -146,19 +146,17 @@ export function addSheet(wb, spec) {
   ws.getRow(headerRow).height = hasBand ? 36 : 34;
   ws.autoFilter = { from: { row: headerRow, column: 1 }, to: { row: headerRow, column: columns.length } };
 
-  // hidden Lists sheet for named drop-down sources
-  let listCols = null;
+  // hidden Lists sheet for named drop-down sources. The list -> column mapping lives on the Lists sheet itself
+  // (header row), so several sheets can share / reuse lists in any order without overwriting each other.
   const listRef = (listName) => {
     const values = lists[listName] || [];
     const sheet = wb.getWorksheet("Lists") || wb.addWorksheet("Lists", { state: "veryHidden" });
-    listCols = listCols || {};
-    if (!listCols[listName]) {
-      const col = Object.keys(listCols).length + 1;
-      listCols[listName] = col;
+    let col = 1;
+    while (sheet.getCell(1, col).value && sheet.getCell(1, col).value !== listName) col++;
+    if (sheet.getCell(1, col).value !== listName) {
       sheet.getCell(1, col).value = listName;
       values.forEach((v, r) => (sheet.getCell(r + 2, col).value = v));
     }
-    const col = listCols[listName];
     const letter = String.fromCharCode(64 + col);
     return `Lists!$${letter}$2:$${letter}$${Math.max(2, values.length + 1)}`;
   };
