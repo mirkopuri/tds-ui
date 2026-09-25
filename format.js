@@ -51,6 +51,7 @@
     try {
       return clean(value).toLocaleString(o.locale || LOCALE, {
         style: "currency",
+        useGrouping: true,
         currency: currency || "EUR",
         minimumFractionDigits: min,
         maximumFractionDigits: max,
