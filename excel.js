@@ -177,7 +177,7 @@ export function addSheet(wb, spec) {
         cell.value = v;
       }
       cell.font = { name: XL.font, size: 10, color: { argb: argb(sample ? XL.muted : XL.text) }, italic: sample };
-      const numeric = c.kind && c.kind !== "date";
+      const numeric = c.kind === "int" || c.kind === "decimal" || c.kind === "money" || c.kind === "percent";
       cell.alignment = { vertical: "middle", horizontal: numeric ? "right" : "left" };
       if (c.text) cell.numFmt = "@";
       else if (c.numFmt || KIND_FMT[c.kind]) cell.numFmt = c.numFmt || KIND_FMT[c.kind];
