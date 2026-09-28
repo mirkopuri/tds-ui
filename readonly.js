@@ -3,10 +3,11 @@
 // The server already refuses every write (checkAccess in the app's proxy) - this only makes the UI
 // honest: every form except plain GET forms (search/filter) is shown but disabled, including
 // controls attached from elsewhere with the `form="id"` attribute. Forms rendered later (client
-// navigation) are locked too. Mark a GET form with method="get" to keep it usable.
+// navigation) are locked too. Mark a GET form with method="get" (or any form with data-tds-allow) to keep it usable; the topbar Logout form is always left alone.
 // Non-invasive: nothing is removed or hidden, data stays visible and selectable.
 
-const WRITE_FORM = 'form:not([method="get" i])';
+// Everything except GET forms (search/filter), the shared topbar Logout, and forms marked data-tds-allow.
+const WRITE_FORM = 'form:not([method="get" i]):not([action$="/logout"]):not([data-tds-allow])';
 const CONTROLS = "input, select, textarea, button";
 
 function lockForm(form) {
