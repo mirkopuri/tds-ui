@@ -357,3 +357,20 @@ select.input:required:invalid {
   border-color: var(--tds-accent);
   box-shadow: 0 0 0 1px var(--tds-accent);
 }
+
+/*
+ * Strip shown under .tds-subnav when the user's role in this app is READER (sola lettura).
+ *   <div class="tds-readonly-banner">Sola lettura: ...</div>
+ * Forms are disabled by readonly.js; see ACCESS.md.
+ */
+.tds-readonly-banner {
+  padding: 6px 16px;
+  background: #fef3c7;
+  border-bottom: 1px solid #f5dc8a;
+  color: #7a5c00;
+  font-size: 13px;
+  text-align: center;
+}
+[data-tds-readonly] form[data-tds-readonly] {
+  cursor: not-allowed;
+}
