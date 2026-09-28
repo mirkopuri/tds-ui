@@ -15,8 +15,10 @@ function lockForm(form) {
   form.querySelectorAll(CONTROLS).forEach((el) => {
     el.disabled = true;
   });
-  if (form.id) {
-    document.querySelectorAll('[form="' + CSS.escape(form.id) + '"]').forEach((el) => {
+  // getAttribute, not form.id: a field named "id" inside the form shadows the property.
+  const formId = form.getAttribute("id");
+  if (formId) {
+    document.querySelectorAll('[form="' + CSS.escape(formId) + '"]').forEach((el) => {
       el.disabled = true;
     });
   }
